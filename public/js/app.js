@@ -20423,6 +20423,23 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 var _listItem = __webpack_require__(46);
 
@@ -20449,7 +20466,15 @@ exports.default = {
     }, (0, _vuex.mapState)({
         async_state: 'async_state',
         items: 'items'
-    }))
+    }), {
+        total: function total() {
+            var sum = 0;
+            this.items.forEach(function (item) {
+                sum += item.price_per_item * item.quantity_in_stock;
+            });
+            return sum;
+        }
+    })
 };
 
 /***/ }),
@@ -34244,7 +34269,17 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     })
   }), _vm._v(" "), (_vm.loading) ? [_c('h3', {
     staticClass: "text-center"
-  }, [_vm._v("Loading... ")])] : _vm._e()], 2), _vm._v(" "), _c('list-item-new')], 1)
+  }, [_vm._v("Loading... ")])] : _vm._e()], 2), _vm._v(" "), _c('div', {
+    staticClass: "row list-header"
+  }, [_c('div', {
+    staticClass: "col-sm-7"
+  }), _vm._v(" "), _c('div', {
+    staticClass: "col-sm-1"
+  }, [_vm._v("\n            Total\n        ")]), _vm._v(" "), _c('div', {
+    staticClass: "col-sm-1"
+  }, [_vm._v("\n            " + _vm._s(_vm.total) + "\n        ")]), _vm._v(" "), _c('div', {
+    staticClass: "col-sm-3"
+  })]), _vm._v(" "), _c('list-item-new')], 1)
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "row list-header"

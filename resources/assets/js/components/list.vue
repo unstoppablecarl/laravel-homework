@@ -48,7 +48,24 @@
 
         </div>
 
+        <div class="row list-header">
+            <div class="col-sm-7">
+            </div>
+            <div class="col-sm-1">
+                Total
+            </div>
+            <div class="col-sm-1">
+                {{total}}
+            </div>
+
+            <div class="col-sm-3">
+
+            </div>
+
+        </div>
+
         <list-item-new></list-item-new>
+
     </div>
 
 </template>
@@ -72,8 +89,15 @@
             ...mapState({
                 async_state: 'async_state',
                 items: 'items',
-            })
+            }),
 
+            total(){
+                var sum = 0;
+                this.items.forEach(function(item){
+                    sum += item.price_per_item * item.quantity_in_stock;
+                });
+                return sum;
+            }
         },
     }
 </script>
